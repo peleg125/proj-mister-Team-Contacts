@@ -67,7 +67,7 @@ export function ContactEdit() {
         </div>
         <div>
           <label>Description</label>
-          <textarea name='description' value={desc} onChange={handleChange} />
+          <textarea name='desc' value={desc} onChange={handleChange} />
         </div>
         <button type='submit'>{params.contactId ? 'Update' : 'Add'} Contact</button>
       </form>
