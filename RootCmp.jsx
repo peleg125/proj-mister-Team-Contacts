@@ -15,18 +15,15 @@ export function App() {
   return (
     <Provider store={store}>
       <Router>
-        <section className='main-layout app'>
-          <AppHeader />
-          <main>
-            <Routes>
-              <Route element={<HomePage />} path='/' />
-              <Route element={<ContactDetails />} path='/contact/details/:contactId' />
-              <Route element={<ContactEdit />} path='/contact/edit/:contactId' />
-              <Route element={<ContactIndex />} path='/contact' />
-              <Route element={<AboutUs />} path='/about' />
-            </Routes>
-          </main>
-        </section>
+        <AppHeader />
+
+        <Routes>
+          <Route element={<HomePage />} path='/' />
+          <Route element={<ContactDetails />} path='/contact/details/:contactId' />
+          <Route element={<ContactEdit />} path='/contact/edit/:contactId' />
+          <Route element={<ContactIndex />} path='/contact' />
+          <Route element={<AboutUs />} path='/about' />
+        </Routes>
       </Router>
     </Provider>
   )
