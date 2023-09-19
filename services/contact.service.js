@@ -1,7 +1,7 @@
-import { storageService } from "./async-storage.service.js"
-import { utilService } from "./util.service.js"
+import { storageService } from './async-storage.service.js'
+import { utilService } from './util.service.js'
 
-const STORAGE_KEY = "contactDB"
+const STORAGE_KEY = 'contactDB'
 _createContacts()
 
 export const contactService = {
@@ -57,50 +57,50 @@ function save(contact) {
 
 function getEmptyContact() {
   return {
-    _id: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    desc: "",
+    _id: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    desc: '',
   }
 }
 
 function _createContacts() {
   let contacts = utilService.loadFromStorage(STORAGE_KEY)
-  if (!contacts || contacts.length) {
+  if (!contacts || !contacts.length) {
     contacts = [
       {
-        _id: "n101",
-        firstName: "Moshe",
-        lastName: "Roll",
-        email: "MosheRoll@gmail.com",
-        phone: "052755289",
-        desc: "Idiot",
+        _id: 'n101',
+        firstName: 'Moshe',
+        lastName: 'Roll',
+        email: 'MosheRoll@gmail.com',
+        phone: '052755289',
+        desc: 'Idiot',
       },
       {
-        _id: "n102",
-        firstName: "Tal",
-        lastName: "Waters",
-        email: "TalWaters@gmail.com",
-        phone: "050185611",
-        desc: "Bestie",
+        _id: 'n102',
+        firstName: 'Tal',
+        lastName: 'Waters',
+        email: 'TalWaters@gmail.com',
+        phone: '050185611',
+        desc: 'Bestie',
       },
       {
-        _id: "n103",
-        firstName: "Gal",
-        lastName: "Cohen",
-        email: "GalCohen@gmail.com",
-        phone: "052831821",
-        desc: "Girlfriend",
+        _id: 'n103',
+        firstName: 'Gal',
+        lastName: 'Cohen',
+        email: 'GalCohen@gmail.com',
+        phone: '052831821',
+        desc: 'Girlfriend',
       },
       {
-        _id: "n104",
-        firstName: "John",
-        lastName: "Levi",
-        email: "JohnLevi@nana10.co.il",
-        phone: "058681588",
-        desc: "Big Brother",
+        _id: 'n104',
+        firstName: 'John',
+        lastName: 'Levi',
+        email: 'JohnLevi@nana10.co.il',
+        phone: '058681588',
+        desc: 'Big Brother',
       },
     ]
     utilService.saveToStorage(STORAGE_KEY, contacts)
