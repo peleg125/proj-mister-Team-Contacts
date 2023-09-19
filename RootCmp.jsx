@@ -4,6 +4,7 @@ const { Provider } = ReactRedux
 
 import { HomePage } from "./pages/HomePage.jsx"
 import { AboutUs } from "./pages/AboutUs.jsx"
+import { ContactIndex } from "./pages/ContactIndex.jsx"
 
 export function App() {
   return (
