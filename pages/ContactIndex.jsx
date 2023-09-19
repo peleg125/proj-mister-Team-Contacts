@@ -8,7 +8,6 @@ const { useSelector } = ReactRedux
 
 export function ContactIndex() {
   const contacts = useSelector((storeState) => storeState.contactModule.contacts)
-  console.log(contacts)
   // const [contactToAdd, setContactToAdd] = useState(contactService.getEmptyContact())
 
   useEffect(() => {
