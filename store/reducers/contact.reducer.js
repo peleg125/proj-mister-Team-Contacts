@@ -16,6 +16,21 @@ const initialState = {
 export function contactReducer(state = initialState, action = {}) {
   // Contacts
   switch (action.type) {
+    case SET_CONTACTS:
+      return { ...state, contacts }
+
+    case REMOVE_CONTACT:
+      contacts = state.contacts.filter((contact) => contact._id !== action.contactId)
+      return { ...state, contacts }
+
+    case ADD_CONTACT:
+      contacts = [...state.contacts, action.contact]
+      return { ...state, contacts }
+
+    case UPDATE_CONTACT:
+      contacts = state.contacts.map((contact) => (contact._id === action.contact._id ? action.contact : contact))
+      return { ...state, contacts }
+
     default:
       return state
   }
