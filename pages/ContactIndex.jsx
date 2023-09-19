@@ -1,10 +1,11 @@
-import { saveContact, loadContact } from "../store/actions/contact.actions.js"
-import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
-import { contactService } from "../services/contact.service.js"
-import { ContactList } from "../cmps/ContactList.jsx"
+import { saveContact, loadContact } from '../store/actions/contact.actions.js'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { contactService } from '../services/contact.service.js'
+import { ContactList } from '../cmps/ContactList.jsx'
 
 const { useEffect, useState } = React
 const { useSelector } = ReactRedux
+const { Link } = ReactRouterDOM
 
 export function ContactIndex() {
   const contacts = useSelector((storeState) => storeState.contactModule.contacts)
@@ -12,8 +13,8 @@ export function ContactIndex() {
 
   useEffect(() => {
     loadContact().catch((err) => {
-      console.log("err", err)
-      showErrorMsg("Cannot load contacts")
+      console.log('err', err)
+      showErrorMsg('Cannot load contacts')
     })
   }, [])
 
@@ -31,6 +32,11 @@ export function ContactIndex() {
   // }
   return (
     <section className='contact-index'>
+      <div className='add-contact-container'>
+        <Link className='add-contact' to='/contact/edit'>
+          Add Contact
+        </Link>
+      </div>
       {!contacts.length && <div className='loading'>Loading...</div>}
       {contacts && <ContactList contacts={contacts} />}
     </section>

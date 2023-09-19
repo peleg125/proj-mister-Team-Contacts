@@ -75,7 +75,7 @@ function getEmptyContact() {
 
 function _createContacts() {
   let contacts = utilService.loadFromStorage(STORAGE_KEY)
-  if (!contacts || contacts.length) {
+  if (!contacts || !contacts.length) {
     contacts = [
       {
         _id: 'n101',
