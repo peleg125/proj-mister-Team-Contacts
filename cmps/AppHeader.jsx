@@ -4,7 +4,7 @@ export function AppHeader() {
   return (
     <header className='app-header'>
       <Link to='/'>
-        <h3>Mister Contacts</h3>
+        <h2>Mister Contacts</h2>
       </Link>
       <nav>
         <NavLink to='/'>Home</NavLink>
