@@ -17,4 +17,5 @@
 @import 'cmps/ContactIndex.css';
 @import 'cmps/ContactList.css';
 @import 'cmps/ContactPreview.css';
-
+@import 'cmps/ContactForm.css';
+@import 'cmps/ContactEdit.css';

@@ -46,20 +46,22 @@ export function ContactDetails() {
         <h2>email: {email}</h2>
         <h2>phone: {phone}</h2>
         <h2>description: {desc}</h2>
-        <button className='del-btn' onClick={() => onRemoveContact()}>
-          Delete Contact
-        </button>
-        <button className='back-btn' onClick={() => navigate('/contact')}>
-          Back to contacts
-        </button>
-        <button
-          className='nav-edit-btn'
-          onClick={() => {
-            navigate(`/contact/edit/${params.contactId}`)
-          }}
-        >
-          Edit
-        </button>
+        <div className='form-btns'>
+          <button className='del-btn' onClick={() => onRemoveContact()}>
+            Delete Contact
+          </button>
+          <button className='back-btn' onClick={() => navigate('/contact')}>
+            Back to contacts
+          </button>
+          <button
+            className='nav-edit-btn'
+            onClick={() => {
+              navigate(`/contact/edit/${params.contactId}`)
+            }}
+          >
+            Edit
+          </button>
+        </div>
       </div>
     </section>
   )
