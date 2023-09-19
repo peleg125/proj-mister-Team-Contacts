@@ -1,4 +1,3 @@
-/* Styles for the main container */
 .contact-edit {
   padding: 20px;
   background-color: #f9f9f9;
@@ -8,13 +7,11 @@
   max-width: 600px;
 }
 
-/* Header styling */
 h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-/* General form element styling */
 form {
   display: flex;
   flex-direction: column;
