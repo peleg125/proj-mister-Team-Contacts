@@ -21,6 +21,7 @@ export function App() {
           <Route element={<HomePage />} path='/' />
           <Route element={<ContactDetails />} path='/contact/details/:contactId' />
           <Route element={<ContactEdit />} path='/contact/edit/:contactId' />
+          <Route element={<ContactEdit />} path='/contact/edit' />
           <Route element={<ContactIndex />} path='/contact' />
           <Route element={<AboutUs />} path='/about' />
         </Routes>

@@ -6,6 +6,7 @@ import { ContactFilter } from '../cmps/ContactFilter.jsx'
 
 const { useEffect, useState } = React
 const { useSelector } = ReactRedux
+const { Link } = ReactRouterDOM
 
 export function ContactIndex() {
   const contacts = useSelector((storeState) => storeState.contactModule.contacts)
@@ -25,6 +26,11 @@ export function ContactIndex() {
 
   return (
     <section className='contact-index'>
+      <div className='add-contact-container'>
+        <Link className='add-contact' to='/contact/edit'>
+          Add Contact
+        </Link>
+      </div>
       {!contacts.length && <div className='loading'>Loading...</div>}
       <ContactFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
       <ContactSort sortBy={sortBy} setSortBy={setSortBy} />
