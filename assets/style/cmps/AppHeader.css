@@ -2,24 +2,19 @@
   background-color: var(--clr1);
   color: var(--clr1bg);
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: center;
 }
 
-.app-header .progress-bar {
-  width: 30%;
-  height: 20px;
-  border-radius: 2em;
-  background-color: #ccc;
-  color: black;
-}
-.app-header .progress-bar span {
-  margin-inline-start: 1em;
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
-.app-header .progress-fill {
-  height: 100%;
-  width: 0;
-  border-radius: 2em;
-  background-color: #4caf50;
-  transition: width 0.3s;
+.nav-links a {
+  color: var(--clr1bg);
+  padding: 8px 0;
 }
 
