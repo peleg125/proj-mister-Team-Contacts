@@ -12,7 +12,6 @@ export function ContactFilter({ filterBy, onSetFilterBy }) {
   }, [filterByToEdit])
 
   function handleChange({ target }) {
-    console.log('from handlechange', target.name, target.value)
     const field = target.name
     let value = target.value
     setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
