@@ -1,6 +1,7 @@
 import { ContactPreview } from "./ContactPreview.jsx"
 
-export function ContactList(contacts) {
+export function ContactList({ contacts }) {
+  console.log(contacts)
   return (
     <ul className='contact-list'>
       {contacts.map((contact) => (

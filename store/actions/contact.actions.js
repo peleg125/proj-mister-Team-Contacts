@@ -8,8 +8,8 @@ export function loadContact() {
   // store.dispatch({ type: SET_IS_LOADING, isLoading: true })
   return contactService
     .query()
-    .then((contact) => {
-      store.dispatch({ type: SET_CONTACTS, contact })
+    .then((contacts) => {
+      store.dispatch({ type: SET_CONTACTS, contacts })
     })
     .catch((err) => {
       console.log("contact action -> Cannot load contact", err)
