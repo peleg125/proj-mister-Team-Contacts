@@ -2,17 +2,19 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Routes } = ReactRouterDOM
 const { Provider } = ReactRedux
 
-import { HomePage } from './pages/HomePage.jsx'
-import { AboutUs } from './pages/AboutUs.jsx'
-import { ContactDetails } from './pages/ContactDetails.jsx'
-import { ContactIndex } from './pages/ContactIndex.jsx'
-import { store } from './store/store.js'
+import { HomePage } from "./pages/HomePage.jsx"
+import { AboutUs } from "./pages/AboutUs.jsx"
+import { ContactDetails } from "./pages/ContactDetails.jsx"
+import { ContactIndex } from "./pages/ContactIndex.jsx"
+import { store } from "./store/store.js"
+import { AppHeader } from "./cmps/AppHeader.jsx"
 
 export function App() {
   return (
     <Provider store={store}>
       <Router>
         <section className='main-layout app'>
+          <AppHeader />
           <main>
             <Routes>
               <Route element={<HomePage />} path='/' />
