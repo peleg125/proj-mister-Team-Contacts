@@ -3,9 +3,8 @@ import { ADD_CONTACT, CONTACT_UNDO, REMOVE_CONTACT, SET_CONTACTS, UPDATE_CONTACT
 import { store } from '../store.js'
 
 export function loadContact() {
-  // const { filterBy } = store.getState().contactModule
+  const { filterBy } = store.getState().contactModule
 
-  // store.dispatch({ type: SET_IS_LOADING, isLoading: true })
   return contactService
     .query()
     .then((contacts) => {
@@ -15,9 +14,6 @@ export function loadContact() {
       console.log('contact action -> Cannot load contact', err)
       throw err
     })
-  // .finally(() => {
-  //     store.dispatch({ type: SET_IS_LOADING, isLoading: false })
-  // })
 }
 
 export function removeContact(contactId) {
