@@ -29,10 +29,10 @@ export function ContactIndex() {
   //       showErrorMsg("Cannot add todo")
   //     })
   // }
-  if (!contacts) return <div>Loading...</div>
   return (
     <section className='contact-index'>
-      <ContactList contacts={contacts} />
+      {!contacts.length && <div className='loading'>Loading...</div>}
+      {contacts && <ContactList contacts={contacts} />}
     </section>
   )
 }
