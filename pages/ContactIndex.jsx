@@ -1,7 +1,7 @@
-import { saveContact, loadContact } from "../store/actions/contact.actions.js"
-import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
-import { contactService } from "../services/contact.service.js"
-import { ContactList } from "../cmps/ContactList.jsx"
+import { saveContact, loadContact } from '../store/actions/contact.actions.js'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { contactService } from '../services/contact.service.js'
+import { ContactList } from '../cmps/ContactList.jsx'
 
 const { useEffect, useState } = React
 const { useSelector } = ReactRedux
@@ -12,8 +12,8 @@ export function ContactIndex() {
 
   useEffect(() => {
     loadContact().catch((err) => {
-      console.log("err", err)
-      showErrorMsg("Cannot load contacts")
+      console.log('err', err)
+      showErrorMsg('Cannot load contacts')
     })
   }, [])
 
