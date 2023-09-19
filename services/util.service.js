@@ -6,7 +6,7 @@ export const utilService = {
   saveToStorage,
   animateCSS,
   debounce,
-  getSortedTodos,
+  getSortedContacts,
 }
 
 function makeId(length = 6) {
@@ -105,15 +105,15 @@ function animateCSS(el, animation) {
     el.addEventListener('animationend', handleAnimationEnd, { once: true })
   })
 }
-function getSortedTodos(todosToDisplay, sortBy) {
+function getSortedContacts(contactsToSort, sortBy) {
   if (sortBy.type === 'txt') {
-    todosToDisplay.sort((b1, b2) => {
-      const title1 = b1.txt.toLowerCase()
-      const title2 = b2.txt.toLowerCase()
-      return sortBy.desc * title2.localeCompare(title1)
+    return contactsToSort.sort((b1, b2) => {
+      const title1 = (b1.firstName || '').toLowerCase()
+      const title2 = (b2.firstName || '').toLowerCase()
+      return sortBy.desc * title1.localeCompare(title2)
     })
   } else {
-    todosToDisplay.sort((b1, b2) => sortBy.desc * (b2[sortBy.type] - b1[sortBy.type]))
+    contactsToSort.sort((b1, b2) => sortBy.desc * (b2[sortBy.type] - b1[sortBy.type]))
   }
-  return todosToDisplay
+  return contactsToSort
 }

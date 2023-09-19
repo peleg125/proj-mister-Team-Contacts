@@ -1,7 +1,8 @@
-import { saveContact, loadContact } from '../store/actions/contact.actions.js'
+import { loadContact, setFilterBy } from '../store/actions/contact.actions.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { contactService } from '../services/contact.service.js'
 import { ContactList } from '../cmps/ContactList.jsx'
+import { ContactSort } from '../cmps/ContactSort.jsx'
+import { ContactFilter } from '../cmps/ContactFilter.jsx'
 
 const { useEffect, useState } = React
 const { useSelector } = ReactRedux
@@ -9,27 +10,20 @@ const { Link } = ReactRouterDOM
 
 export function ContactIndex() {
   const contacts = useSelector((storeState) => storeState.contactModule.contacts)
-  // const [contactToAdd, setContactToAdd] = useState(contactService.getEmptyContact())
+  const filterBy = useSelector((storeState) => storeState.contactModule.filterBy)
+  const [sortBy, setSortBy] = useState({ type: '', desc: -1 })
 
   useEffect(() => {
-    loadContact().catch((err) => {
-      console.log('err', err)
+    loadContact(sortBy).catch((err) => {
+      console.log('err:', err)
       showErrorMsg('Cannot load contacts')
     })
-  }, [])
+  }, [filterBy, sortBy])
 
-  // function onAddContact(ev) {
-  //   ev.preventDefault()
-  //   saveContact(contactToAdd)
-  //     .then(() => {
-  //       showSuccessMsg("Todo added")
-  //       setContactToAdd(todoService.getEmptyTodo())
-  //     })
-  //     .catch((err) => {
-  //       console.log("Cannot add todo", err)
-  //       showErrorMsg("Cannot add todo")
-  //     })
-  // }
+  function onSetFilterBy(filterBy) {
+    setFilterBy(filterBy)
+  }
+
   return (
     <section className='contact-index'>
       <div className='add-contact-container'>
@@ -38,6 +32,8 @@ export function ContactIndex() {
         </Link>
       </div>
       {!contacts.length && <div className='loading'>Loading...</div>}
+      <ContactFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
+      <ContactSort sortBy={sortBy} setSortBy={setSortBy} />
       {contacts && <ContactList contacts={contacts} />}
     </section>
   )

@@ -10,18 +10,22 @@ export const contactService = {
   save,
   remove,
   getEmptyContact,
-  // getDefaultFilter,
-  // getDefaultSort,
+  getDefaultFilter,
+  getDefaultSort,
 }
 
 function query(filterBy = {}, sortBy) {
   return storageService.query(STORAGE_KEY).then((contacts) => {
-    const filteredContacts = contacts
+    let filteredContacts = contacts
+
     if (filterBy.firstName) {
       const regExp = new RegExp(filterBy.firstName, 'i')
       filteredContacts = filteredContacts.filter((contact) => regExp.test(contact.firstName))
     }
-    filteredContacts = getSortedContacts(contacts, sortBy)
+
+    filteredContacts = utilService.getSortedContacts(filteredContacts, sortBy)
+
+    return filteredContacts
   })
 }
 
@@ -40,27 +44,13 @@ function save(contact) {
     return storageService.post(STORAGE_KEY, contact)
   }
 }
+function getDefaultSort() {
+  return { type: '', desc: -1 }
+}
 
-// function getSortedContacts(contactsToDisplay, sortBy) {
-//   if (sortBy.type === "txt") {
-//     contactsToDisplay.sort((b1, b2) => {
-//       const title1 = b1.txt.toLowerCase()
-//       const title2 = b2.txt.toLowerCase()
-//       return sortBy.desc * title2.localeCompare(title1)
-//     })
-//   } else {
-//     contactsToDisplay.sort((b1, b2) => sortBy.desc * (b2[sortBy.type] - b1[sortBy.type]))
-//   }
-//   return contactsToDisplay
-// }
-
-// function getDefaultFilter() {
-//   return { txt: "", isDone: "", pageIdx: 0 }
-// }
-
-// function getDefaultSort() {
-//   return { type: "", desc: -1 }
-// }
+function getDefaultFilter() {
+  return { firstName: '' }
+}
 
 function getEmptyContact() {
   return {
