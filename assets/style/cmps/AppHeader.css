@@ -23,8 +23,3 @@
   transition: width 0.3s;
 }
 
-@media(max-width: 720px) {
-  .app-header {
-    color: var(--clr2bg);
-  }
-}
